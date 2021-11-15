@@ -1,0 +1,13 @@
+.input-content__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-content__input {
+    margin-top: 15px;
+    min-width: 600px;
+    min-height: 42px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #E7EDF0;
+}

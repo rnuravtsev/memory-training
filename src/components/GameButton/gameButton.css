@@ -1,0 +1,29 @@
+.game-button {
+    position: relative;
+    width: 105px;
+    height: 105px;
+    background-color: #E7EDF0;
+    border-radius: 20px;
+    box-shadow: 0 -4px 1px 0 #00000059 inset,
+                0 2px 1px 0 #FFFFFFB2 inset,
+                0 2px 1px 0 #00000059,
+                0 6px 5px 0 #00000059;
+    cursor: pointer;
+}
+
+.game-button:hover {
+    opacity: 0.75;
+}
+
+.game-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+;
+}

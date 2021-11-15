@@ -1,0 +1,31 @@
+.admin-page {
+    padding: 80px;
+}
+
+.admin-page__title {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.admin-page__wrapper {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.admin-page__wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.admin-page__button {
+    padding: 0;
+    display: flex;
+    font-size: 24px;
+    line-height: 1;
+    color: #c4c4c4;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}

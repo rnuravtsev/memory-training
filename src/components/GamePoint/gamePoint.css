@@ -1,0 +1,16 @@
+.game-point__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: max-content;
+    gap: 4px;
+}
+
+.game-point__item {
+    width: 20px;
+    height: 20px;
+    background-color: #E7EDF0;
+}
+
+.game-point__item.active {
+    background-color: #1070C9;
+}
