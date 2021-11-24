@@ -1,5 +1,7 @@
 .game-button {
     position: relative;
+    align-self: center;
+    justify-self: center;
     width: 105px;
     height: 105px;
     background-color: #E7EDF0;

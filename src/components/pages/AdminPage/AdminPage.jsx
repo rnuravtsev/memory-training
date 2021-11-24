@@ -1,5 +1,5 @@
 import React from 'react';
-import cross from '../../../cross.svg';
+import cross from '../../../img/cross.svg';
 import GamePoint from "../../GamePoint/GamePoint";
 import InputContent from "../../commons/InputContent/InputContent";
 import Exercises from "../../Exercises/Exercises";

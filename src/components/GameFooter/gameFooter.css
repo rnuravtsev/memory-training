@@ -1,0 +1,27 @@
+.game-footer {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    padding: 18px 32px;
+    background-color: #CAE8EE;
+}
+
+.game-footer__button {
+    padding: 17px 28px;
+    font-weight: 900;
+    font-size: 30px;
+    background-color: #38ACAF;
+    border: 2px solid #512C47;
+    border-radius: 9px;
+    transform: skew(-5deg);
+    transition: all .15s ease;
+    box-shadow: 0 -6px 1px 0 #00000059 inset,
+                0 7px 1px 0 #FFFFFF80 inset,
+                0 2px 1px 0 #00000059,
+                0 6px 5px 0 #00000059;
+    cursor: pointer;
+}
+
+.game-footer__button:hover {
+    opacity: 0.85;
+}

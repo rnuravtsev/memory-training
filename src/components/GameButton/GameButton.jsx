@@ -5,9 +5,7 @@ import './gameButton.css';
 const GameLamp = () => {
     const [buttonIsOn, setButtonIsOn] = useState(false);
     return (
-        <div className={classnames('game-button', {'active' : buttonIsOn})}>
-
-        </div>
+        <div className={classnames('game-button', {'active' : buttonIsOn})}/>
     );
 };
 

@@ -1,0 +1,27 @@
+.game__grid {
+    max-width: 550px;
+    display: grid;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.game__item {
+    width: 140px;
+    height: 140px;
+    display: grid;
+    place-items: center;
+    align-self: center;
+    justify-self: center;
+}
+
+.game__grid--9 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.game__grid--16 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.game__grid--25 {
+    grid-template-columns: repeat(5, 1fr);
+}
