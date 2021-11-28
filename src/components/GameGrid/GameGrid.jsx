@@ -1,16 +1,32 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useRef} from 'react';
 import classnames from "classnames";
 import GameLamp from "../GameLamp/GameLamp";
+import {GameContext} from "../../store";
+import {gameReset, gameWin} from "../../store/actions";
+
 import "./gameGrid.css"
 
-const GameGrid = ({lamps, fieldSize, sequence}) => {
-    const [lamp, setLamp] = useState(true);
+const GameGrid = () => {
+    const {state, dispatch} = useContext(GameContext)
+    const {lamps, fieldSize, sequence} = state
 
-    useEffect(() => {
-        setTimeout(() => {
-          setLamp(!lamp)
-        }, 3000)
-    }, [])
+    let rightAttempt = useRef(0)
+
+    const sequenceLength = sequence?.length
+
+    const checkWin = () => {
+        if (rightAttempt.current === sequenceLength) {
+            dispatch(gameWin())
+            dispatch(gameReset())
+        }
+    }
+
+    const setRightAttempt = (value) => {
+        if (value) {
+            rightAttempt.current++
+            checkWin()
+        }
+    }
 
     return (
         <div className={
@@ -22,10 +38,10 @@ const GameGrid = ({lamps, fieldSize, sequence}) => {
         >
             {lamps?.map((el, index) =>
                 <GameLamp
-                    lamp={lamp}
                     sequence={sequence}
                     index={el}
                     key={index}
+                    setRightAttempt={setRightAttempt}
                 />
             )}
         </div>
