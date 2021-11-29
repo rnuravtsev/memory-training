@@ -4,32 +4,29 @@ import GameButton from "../GameButton/GameButton";
 import classnames from 'classnames';
 import './gameLamp.css';
 import {GameContext} from "../../store";
-import {gameLose, gameReset} from "../../store/actions";
+import {increaseRightAttempt, increaseWrongAttempt} from "../../store/actions";
 
 /**
  *
  * @param index {number} - индекс элемента
- * @param initialStateOfButton {boolean} - флаг лампы или кнопки
- * @param setRightAttempt {function} - Увеличивает количество успешных попыток
  * @returns {JSX.Element}
  * @constructor
  */
 
-const GameLamp = ({index, setRightAttempt}) => {
+const GameLamp = ({index}) => {
         const [lampIsOn, setLampIsOn] = useState(false)
         const {state, dispatch} = useContext(GameContext)
 
         const { sequence } = state
 
-        const match = sequence.some((el) => el === index)
+        const match = sequence?.some((el) => el === index)
 
         const onGameButtonClick = () => {
             if (match) {
-                setRightAttempt(match);
+                dispatch(increaseRightAttempt())
                 setLampIsOn(!lampIsOn)
             } else {
-                dispatch(gameLose())
-                dispatch(gameReset())
+                dispatch(increaseWrongAttempt())
             }
         }
 

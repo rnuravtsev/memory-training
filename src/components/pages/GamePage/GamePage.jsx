@@ -5,15 +5,38 @@ import GameGrid from "../../GameGrid/GameGrid";
 
 import './gamePage.css';
 import {GameContext} from "../../../store";
+import {gameLose, gameReset, gameWin} from "../../../store/actions";
 
 const GamePage = () => {
-    const {state: {status}} = useContext(GameContext)
+    const {state, dispatch} = useContext(GameContext)
+    const {
+        status,
+        rightAttempt,
+        wrongAttempt,
+        sequence
+    } = state;
+
+    const sequenceLength = sequence?.length
+
+    const checkGameProcess = () => {
+        if (rightAttempt === sequenceLength) {
+            dispatch(gameWin())
+        }
+        if (wrongAttempt > 0) {
+            dispatch(gameLose())
+        }
+    }
+
+    useEffect(() => {
+        checkGameProcess()
+    })
+
 
     useEffect(() => {
         if (status) {
             alert(status)
         }
-    }, [status])
+    }, [status, rightAttempt, sequence])
 
     return (
             <div className="game-page">

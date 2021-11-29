@@ -10,17 +10,19 @@ const shuffleArr = (arr) => {
 const lamps = shuffleArr(Array.from(Array(9)).map((el, i) => i));
 const sequence = shuffleArr(Array.from(Array(9)).map((el, i) => i).slice(Math.random() * 10));
 
-const gameInit = () => (initialState)
-
-export const GameContext = React.createContext()
-
 export const initialState = {
     initialStateOfButton: true,
     status: '',
+    rightAttempt: 0,
+    wrongAttempt: 0,
     fieldSize: 9,
     lamps,
-    sequence
+    sequence: shuffleArr(sequence),
 }
+
+const gameInit = () => ({...initialState})
+
+export const GameContext = React.createContext()
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -28,6 +30,16 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 initialStateOfButton: false
+            }
+        case GameActions.INCREASE_RIGHT_ATTEMPT:
+            return {
+                ...state,
+                rightAttempt: state.rightAttempt + 1
+            }
+        case GameActions.INCREASE_WRONG_ATTEMPT:
+            return {
+                ...state,
+                wrongAttempt: state.wrongAttempt + 1
             }
         case GameActions.GAME_WIN:
             return {

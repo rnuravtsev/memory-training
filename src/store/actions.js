@@ -3,10 +3,20 @@ export const GameActions = {
     GAME_WIN: 'GAME_WIN',
     GAME_LOSE: 'GAME_LOSE',
     GAME_RESET: 'GAME_RESET',
+    INCREASE_RIGHT_ATTEMPT: 'INCREASE_RIGHT_ATTEMPT',
+    INCREASE_WRONG_ATTEMPT: 'INCREASE_WRONG_ATTEMPT',
 }
 
 export const startGame = () => ({
     type: GameActions.GAME_START,
+})
+
+export const increaseRightAttempt = () => ({
+    type: GameActions.INCREASE_RIGHT_ATTEMPT,
+})
+
+export const increaseWrongAttempt = () => ({
+    type: GameActions.INCREASE_WRONG_ATTEMPT,
 })
 
 export const gameWin = () => ({
