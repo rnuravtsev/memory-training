@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 18px;
+  min-width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* container */
+
+.container {
+  max-width: 1340px;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+
+.page-title {
+  margin-bottom: 60px;
+  text-align: center;
+  color: #2D929A;
+}
