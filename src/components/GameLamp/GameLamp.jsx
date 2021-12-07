@@ -1,30 +1,33 @@
-import React, {useContext, useState} from 'react';
-import GameButton from "../GameButton/GameButton";
+import React, {useContext, useEffect, useState} from 'react';
 
 import classnames from 'classnames';
 import './gameLamp.css';
-import {GameContext} from "../../store";
+import {GameContext} from "../../store/store";
 import {increaseRightAttempt, increaseWrongAttempt} from "../../store/actions";
 
 /**
  *
  * @param index {number} - индекс элемента
+ * @param sequence {array} - последовательность ламп
  * @returns {JSX.Element}
  * @constructor
  */
 
-const GameLamp = ({index}) => {
+const GameLamp = ({index, sequence}) => {
         const [lampIsOn, setLampIsOn] = useState(false)
         const {state, dispatch} = useContext(GameContext)
-
-        const { sequence } = state
+        const {gameStart} = state
 
         const match = sequence?.some((el) => el === index)
+
+        useEffect(() => {
+            setLampIsOn(false)
+        }, [sequence])
 
         const onGameButtonClick = () => {
             if (match) {
                 dispatch(increaseRightAttempt())
-                setLampIsOn(!lampIsOn)
+                setLampIsOn(true)
             } else {
                 dispatch(increaseWrongAttempt())
             }
@@ -33,7 +36,7 @@ const GameLamp = ({index}) => {
         return (
             <div className="game__item">
                 {
-                    (state.initialStateOfButton || lampIsOn)
+                    (gameStart || lampIsOn)
                         ? <div className={classnames('game-lamp', {'active': match})}/>
                         : <div onClick={onGameButtonClick} className={classnames('game-button')}/>
                 }

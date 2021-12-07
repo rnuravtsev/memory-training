@@ -1,14 +1,20 @@
-import React, {useContext, useRef} from 'react';
+import React, {useContext} from 'react';
 import classnames from "classnames";
 import GameLamp from "../GameLamp/GameLamp";
-import {GameContext} from "../../store";
-import {gameReset, gameWin} from "../../store/actions";
+import {GameContext} from "../../store/store";
 
 import "./gameGrid.css"
 
-const GameGrid = () => {
+/**
+ *
+ * @param sequence {array} последовательность ламп
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
+const GameGrid = ({sequence}) => {
     const {state} = useContext(GameContext)
-    const {lamps, fieldSize, sequence} = state
+    const {lamps, fieldSize} = state
 
     return (
         <div className={
@@ -20,6 +26,7 @@ const GameGrid = () => {
         >
             {lamps?.map((el, index) =>
                 <GameLamp
+                    sequence={sequence}
                     index={el}
                     key={index}
                 />

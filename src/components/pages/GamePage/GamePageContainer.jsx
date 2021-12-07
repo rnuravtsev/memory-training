@@ -1,6 +1,6 @@
-import React, {useReducer, useMemo} from 'react';
-import {initialState, reducer} from "../../../store";
-import {GameContext} from "../../../store";
+import React, {useReducer} from 'react';
+import {initialState, reducer} from "../../../store/store";
+import {GameContext} from "../../../store/store";
 import GamePage from "./GamePage";
 
 const GamePageContainer = () => {
